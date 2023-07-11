@@ -2,9 +2,14 @@
     <div class="inner">
       <div class="inner-top">
         <app-header></app-header>
-        <app-todo-counter></app-todo-counter>
+        <app-todo-counter [todoItems]="todos"></app-todo-counter>
         <p>Empty todo placeholder</p>
       </div>
+      <ul>
+        <li *ngFor="let todo of todos">
+          {{ todo.title }}
+        </li>
+      </ul>
       <app-todo-new></app-todo-new>
       <app-todo-list></app-todo-list>
     </div>
