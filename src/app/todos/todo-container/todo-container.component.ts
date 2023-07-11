@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TodoService } from 'src/app/services/todo.service';
 import { TodoItem } from 'src/app/types/TodoItem';
 
 @Component({
@@ -8,6 +9,23 @@ import { TodoItem } from 'src/app/types/TodoItem';
 })
 export class TodoContainerComponent {
 
-  todos = [{id: 1, title: 'Open fridge', completed: true}, {id: 2, title: 'Close fridge', completed: false}];
+  constructor(public todoService: TodoService) {}
+
+  todos: TodoItem[] = [];
+
+  ngOnInit(): void {
+    this.getTodos();
+  }
+  
+  getTodos(): void {
+    this.todoService.getTodos().subscribe(todos => this.todos = todos);
+  }
+
+
+  addNewTodo(todo: TodoItem): void {
+    this.todoService.addTodo(todo).subscribe(newTodo => {
+      this.todos.push(newTodo);
+    });
+  }
 
 }

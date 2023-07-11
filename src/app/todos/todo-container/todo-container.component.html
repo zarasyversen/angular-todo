@@ -5,12 +5,12 @@
         <app-todo-counter [todoItems]="todos"></app-todo-counter>
         <p>Empty todo placeholder</p>
       </div>
+      <app-todo-new (onTodoAdded)="addNewTodo($event)"></app-todo-new>
       <ul>
         <li *ngFor="let todo of todos">
           {{ todo.title }}
         </li>
       </ul>
-      <app-todo-new></app-todo-new>
       <app-todo-list></app-todo-list>
     </div>
 </div>

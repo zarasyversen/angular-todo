@@ -1,1 +1,14 @@
-<p>todo-new works!</p>
+<div class="addTodo" [class.addTodoEmpty]="!hasTodos">
+  <form class="addTodoForm" (ngSubmit)="onSubmit()" #addForm="ngForm">
+    <label for="new-todo" class="addTodoForm__label">Add a new task</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      placeholder="What do you need to do?"
+      class="input-text"
+      [(ngModel)]="model.title"
+    />
+    <button class="button addTodoForm__button">Add</button>
+  </form>
+</div>

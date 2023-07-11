@@ -1,6 +1,6 @@
-<div *ngIf="hasItems">
+<ng-template [ngIf]="hasItems">
   <p class="counter">
     Hey, you have completed {{ completedTasks }} of {{ todoItems.length }} tasks!
   </p>
-</div>
+</ng-template>
 
