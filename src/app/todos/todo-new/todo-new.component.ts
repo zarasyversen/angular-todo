@@ -11,10 +11,19 @@ export class TodoNewComponent {
 
   @Output() onTodoAdded = new EventEmitter<TodoItem>();
 
-  model = new TodoItem(Date.now(), '', false);
+  model = this.newModel();
 
   onSubmit() { 
+    if (!this.model.title?.trim()) {
+      return;
+    }
+
     this.onTodoAdded.emit(this.model);
+    this.model = this.newModel();
+  }
+
+  newModel(): TodoItem {
+    return new TodoItem(Date.now(), '', false);
   }
 
 }

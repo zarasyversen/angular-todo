@@ -32,3 +32,9 @@
   flex-basis: 100%;
   margin: 10px 0;
 }
+
+.addTodoForm__button[disabled] {
+  opacity: .7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
