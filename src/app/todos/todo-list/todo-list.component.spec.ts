@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoListComponent } from './todo-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -8,7 +10,8 @@ describe('TodoListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TodoListComponent]
+      imports: [FontAwesomeModule, FormsModule],
+      declarations: [TodoListComponent],
     });
     fixture = TestBed.createComponent(TodoListComponent);
     component = fixture.componentInstance;
