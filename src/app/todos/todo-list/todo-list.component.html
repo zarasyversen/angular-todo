@@ -43,6 +43,7 @@
       [todo]="todo"
       (onTodoDeleted)="deleteTodo($event)"
       (onTodoEdit)="editTodo($event.id, $event.newTitle)"
+      (onTodoCompleted)="completeTodo($event)"
     ></app-todo-item>
   </ul>
 </div>

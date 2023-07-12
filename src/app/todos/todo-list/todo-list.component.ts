@@ -18,6 +18,7 @@ export class TodoListComponent {
   @Input() todos: TodoItem[] = [];
 
   @Output() onTodoDeleted = new EventEmitter<number>();
+  @Output() onTodoCompleted = new EventEmitter<number>();
   @Output() onTodoEdit = new EventEmitter<{ id: number; newTitle: string }>();
 
   @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement> | null =
@@ -48,6 +49,10 @@ export class TodoListComponent {
       id: id,
       newTitle: title,
     });
+  }
+
+  completeTodo(todoId: number) {
+    this.onTodoCompleted.emit(todoId);
   }
 
   toggleSearch() {

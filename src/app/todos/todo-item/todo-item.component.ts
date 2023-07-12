@@ -11,6 +11,7 @@ export class TodoItemComponent {
   @Input() todo: TodoItem | null = null;
 
   @Output() onTodoDeleted = new EventEmitter<number>();
+  @Output() onTodoCompleted = new EventEmitter<number>();
   @Output() onTodoEdit = new EventEmitter<{ id: number; newTitle: string }>();
 
   faEdit = faEdit;
@@ -28,9 +29,9 @@ export class TodoItemComponent {
     this.onTodoDeleted.emit(todoId);
   }
 
-  handleEdit(id: number) {
+  handleEdit(todoId: number) {
     this.onTodoEdit.emit({
-      id: id,
+      id: todoId,
       newTitle: this.editInput,
     });
   }
@@ -39,5 +40,9 @@ export class TodoItemComponent {
     if (e.keyCode === 13) {
       this.isEditing = !this.isEditing;
     }
+  }
+
+  completeTodo(todoId: number) {
+    this.onTodoCompleted.emit(todoId);
   }
 }

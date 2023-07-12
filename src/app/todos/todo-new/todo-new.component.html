@@ -4,12 +4,17 @@
     <input
       type="text"
       name="title"
-      id="title"
+      id="new-todo"
       placeholder="What do you need to do?"
       class="input-text"
       required
       [(ngModel)]="model.title"
     />
-    <button class="button addTodoForm__button" [disabled]="!todoForm.form.valid || !model.title.trim()">Add</button>
+    <button
+      class="button addTodoForm__button"
+      [disabled]="!todoForm.form.valid || !model.title.trim()"
+    >
+      Add
+    </button>
   </form>
 </div>

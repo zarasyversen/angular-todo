@@ -32,6 +32,11 @@ export class TodoContainerComponent {
     this.getTodos();
   }
 
+  completeTodo(todoId: number) {
+    this.todoService.completeTodo(todoId);
+    this.getTodos();
+  }
+
   editTodo(id: number, title: string) {
     this.todoService.editTodo(id, title);
   }

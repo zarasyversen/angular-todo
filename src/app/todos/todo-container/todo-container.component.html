@@ -8,6 +8,7 @@
     <app-todo-list
       [todos]="todos"
       (onTodoDeleted)="deleteTodo($event)"
+      (onTodoCompleted)="completeTodo($event)"
       (onTodoEdit)="editTodo($event.id, $event.newTitle)"
     ></app-todo-list>
   </div>

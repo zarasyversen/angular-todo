@@ -2,7 +2,13 @@
   <div class="item__inner" [class.hidden]="isEditing">
     <label class="checkboxLabel">
       <span class="sr-only">Task completed</span>
-      <input type="checkbox" class="checkbox" [(ngModel)]="todo.completed" />
+      <input
+        type="checkbox"
+        name="completeTodo"
+        class="checkbox"
+        [(ngModel)]="todo.completed"
+        (click)="completeTodo(todo.id)"
+      />
       <ng-template [ngIf]="todo.completed">
         <fa-icon [icon]="faCheck"> </fa-icon>
       </ng-template>
