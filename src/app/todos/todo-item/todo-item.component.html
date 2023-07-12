@@ -1,1 +1,51 @@
-<p>todo-item works!</p>
+<li *ngIf="todo" class="item">
+  <div class="item__inner" [class.hidden]="isEditing">
+    <label class="checkboxLabel">
+      <span class="sr-only">Task completed</span>
+      <input type="checkbox" class="checkbox" [(ngModel)]="todo.completed" />
+      <ng-template [ngIf]="todo.completed">
+        <fa-icon [icon]="faCheck"> </fa-icon>
+      </ng-template>
+    </label>
+    <div class="details" [class.is-complete]="todo.completed">
+      <p>{{ todo.title }}</p>
+      <small>
+        <span *ngIf="">Updated</span>
+        <span *ngElse>Created</span>
+        {{ todo.time }}
+        {{ todo.day }}
+      </small>
+    </div>
+    <div class="actions">
+      <button
+        type="button"
+        class="button actions__button"
+        aria-label="Edit this todo"
+        (click)="isEditing = !isEditing"
+      >
+        <fa-icon [icon]="faEdit"> </fa-icon>
+      </button>
+      <button
+        type="button"
+        class="button actions__button"
+        aria-label="Delete this todo"
+        (click)="deleteTodo(todo.id)"
+      >
+        <fa-icon [icon]="faTrash"> </fa-icon>
+      </button>
+    </div>
+  </div>
+  <div [class.hidden]="!isEditing">
+    <label for="edit_{{ todo.id }}"
+      >Edit your task, press enter when done
+    </label>
+    <input
+      type="text"
+      id="edit_{{ todo.id }}"
+      class="input-text input-edit"
+      [(ngModel)]="editInput"
+      (input)="handleEdit(todo.id)"
+      (keydown)="updateEdit($event)"
+    />
+  </div>
+</li>

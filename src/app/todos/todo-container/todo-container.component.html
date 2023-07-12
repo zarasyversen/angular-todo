@@ -1,10 +1,14 @@
 <div class="container">
-    <div class="inner">
-      <div class="inner-top">
-        <app-header></app-header>
-        <app-todo-counter [todoItems]="todos"></app-todo-counter>
-      </div>
-      <app-todo-new (onTodoAdded)="addNewTodo($event)"></app-todo-new>
-      <app-todo-list [todos]="todos" (onTodoDeleted)="deleteTodo($event)"></app-todo-list>
+  <div class="inner">
+    <div class="inner-top">
+      <app-header></app-header>
+      <app-todo-counter [todoItems]="todos"></app-todo-counter>
     </div>
+    <app-todo-new (onTodoAdded)="addNewTodo($event)"></app-todo-new>
+    <app-todo-list
+      [todos]="todos"
+      (onTodoDeleted)="deleteTodo($event)"
+      (onTodoEdit)="editTodo($event.id, $event.newTitle)"
+    ></app-todo-list>
+  </div>
 </div>

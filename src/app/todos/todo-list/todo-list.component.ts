@@ -5,13 +5,13 @@ import { faEdit, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent {
-
   @Input() todos: TodoItem[] = [];
 
   @Output() onTodoDeleted = new EventEmitter<number>();
+  @Output() onTodoEdit = new EventEmitter<{ id: number; newTitle: string }>();
 
   faEdit = faEdit;
   faTrash = faTrash;
@@ -21,4 +21,10 @@ export class TodoListComponent {
     this.onTodoDeleted.emit(todoId);
   }
 
+  editTodo(id: number, title: string) {
+    this.onTodoEdit.emit({
+      id: id,
+      newTitle: title,
+    });
+  }
 }
