@@ -27,7 +27,7 @@
         type="button"
         class="button actions__button"
         aria-label="Edit this todo"
-        (click)="isEditing = !isEditing"
+        (click)="startEdit()"
       >
         <fa-icon [icon]="faEdit"> </fa-icon>
       </button>
@@ -46,6 +46,7 @@
       >Edit your task, press enter when done
     </label>
     <input
+      #editInputEl
       type="text"
       id="edit_{{ todo.id }}"
       class="input-text input-edit"
