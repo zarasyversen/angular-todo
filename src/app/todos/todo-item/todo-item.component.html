@@ -10,8 +10,8 @@
     <div class="details" [class.is-complete]="todo.completed">
       <p>{{ todo.title }}</p>
       <small>
-        <span *ngIf="">Updated</span>
-        <span *ngElse>Created</span>
+        <span *ngIf="todo.updated; else isNew">Updated</span>
+        <ng-template #isNew><span>Created</span></ng-template>
         {{ todo.time }}
         {{ todo.day }}
       </small>
