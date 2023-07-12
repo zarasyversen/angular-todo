@@ -1,8 +1,44 @@
-<ul>
-  <app-todo-item
-    *ngFor="let todo of todos"
-    [todo]="todo"
-    (onTodoDeleted)="deleteTodo($event)"
-    (onTodoEdit)="editTodo($event.id, $event.newTitle)"
-  ></app-todo-item>
-</ul>
+<div>
+  <div class="topContainer">
+    <h2>Tasks</h2>
+    <button
+      type="button"
+      class="button icon-button"
+      [class.cancelSearch]="isSearching"
+      (click)="toggleSearch()"
+    >
+      <span *ngIf="isSearching; else newSearch">
+        <span>Cancel Search</span>
+        <fa-icon [icon]="faTimes"> </fa-icon>
+      </span>
+      <ng-template #newSearch>
+        <span>Find</span>
+        <fa-icon [icon]="faSearch"> </fa-icon>
+      </ng-template>
+    </button>
+    <form class="todoSearch" (submit)="(searchTodos)" *ngIf="isSearching">
+      <label for="todoSearch" class="sr-only"> Find a todo </label>
+      <fa-icon class="todoSearch__icon" [icon]="faSearch"> </fa-icon>
+      <input
+        #searchInput
+        type="text"
+        name="todoSearch"
+        class="input-text todoSearchInput"
+        id="todoSearch"
+        [(ngModel)]="searchTerm"
+        (input)="searchTodos()"
+        placeholder="Search for task..."
+      />
+
+      <p *ngIf="hasNoResults">Sorry, no results. Maybe add a new item?</p>
+    </form>
+  </div>
+  <ul>
+    <app-todo-item
+      *ngFor="let todo of filteredTodos"
+      [todo]="todo"
+      (onTodoDeleted)="deleteTodo($event)"
+      (onTodoEdit)="editTodo($event.id, $event.newTitle)"
+    ></app-todo-item>
+  </ul>
+</div>
