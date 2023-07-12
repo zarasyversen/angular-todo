@@ -1,1 +1,42 @@
-<p>todo-list works!</p>
+<ul>
+  <li *ngFor="let todo of todos" class="item">
+    <div class="item__inner">
+      <label class="checkboxLabel">
+        <span class="sr-only">Task completed</span>
+        <input
+          type="checkbox"
+          class="checkbox"
+          [(ngModel)]="todo.completed"
+        />
+        <ng-template [ngIf]="todo.completed">
+          <fa-icon [icon]="faCheck"> </fa-icon>
+        </ng-template>
+      </label>
+      <div class="details" [class.is-complete]="todo.completed">
+        <p>{{ todo.title }}</p>
+        <small>
+          <span *ngIf="">Updated</span>
+          <span *ngElse>Created</span>
+          {{ todo.time }}
+          {{ todo.day }}
+        </small>
+      </div>
+      <div class="actions">
+        <button
+          type="button"
+          class="button actions__button"
+          aria-label="Edit this todo"
+        >
+          <fa-icon [icon]=faEdit> </fa-icon>
+        </button>
+        <button
+          type="button"
+          class="button actions__button"
+          aria-label="Delete this todo"
+        >
+          <fa-icon [icon]=faTrash> </fa-icon>
+        </button>
+      </div>
+    </div>
+  </li>
+</ul>

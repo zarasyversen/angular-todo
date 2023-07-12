@@ -12,6 +12,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { TodoNewComponent } from './todos/todo-new/todo-new.component';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
