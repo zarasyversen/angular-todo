@@ -20,7 +20,8 @@ export class TodoListComponent {
   @Output() onTodoDeleted = new EventEmitter<number>();
   @Output() onTodoEdit = new EventEmitter<{ id: number; newTitle: string }>();
 
-  //@ViewChild('searchInput') searchInput: ElementRef;
+  @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement> | null =
+    null;
 
   faTimes = faTimes;
   faSearch = faSearch;
@@ -31,6 +32,10 @@ export class TodoListComponent {
   hasNoResults = false;
 
   ngOnInit() {
+    this.filteredTodos = this.todos;
+  }
+
+  ngOnChanges() {
     this.filteredTodos = this.todos;
   }
 
@@ -50,6 +55,12 @@ export class TodoListComponent {
     this.searchTerm = '';
     this.filteredTodos = this.todos;
     this.hasNoResults = false;
+
+    if (this.searchInput) {
+      setTimeout(() => {
+        this.searchInput!.nativeElement.focus();
+      });
+    }
   }
 
   searchTodos() {

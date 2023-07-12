@@ -19,10 +19,6 @@
   text-decoration: line-through;
 }
 
-.hidden {
-  display: none;
-}
-
 .checkbox {
   border: 0;
   clip: rect(0 0 0 0);

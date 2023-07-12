@@ -16,7 +16,11 @@
         <fa-icon [icon]="faSearch"> </fa-icon>
       </ng-template>
     </button>
-    <form class="todoSearch" (submit)="(searchTodos)" *ngIf="isSearching">
+    <form
+      class="todoSearch"
+      (submit)="(searchTodos)"
+      [class.hidden]="!isSearching"
+    >
       <label for="todoSearch" class="sr-only"> Find a todo </label>
       <fa-icon class="todoSearch__icon" [icon]="faSearch"> </fa-icon>
       <input

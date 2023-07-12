@@ -17,7 +17,9 @@ export class TodoContainerComponent {
   }
 
   getTodos(): void {
-    this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
+    this.todoService.getTodos().subscribe((todos) => {
+      this.todos = todos;
+    });
   }
 
   addNewTodo(todo: TodoItem): void {
@@ -26,7 +28,6 @@ export class TodoContainerComponent {
   }
 
   deleteTodo(todoId: number): void {
-    console.log('deleting, ', todoId);
     this.todoService.deleteTodo(todoId);
     this.getTodos();
   }

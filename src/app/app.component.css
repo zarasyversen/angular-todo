@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 * {
   box-sizing: border-box;
@@ -16,7 +16,7 @@
   --border: 1px solid var(--darker-base);
   --box-shadow: 0px 2px 3px 0px var(--darker-base);
   --border-radius: 4px;
-  --font-family: 'Poppins', sans-serif;
+  --font-family: "Poppins", sans-serif;
 }
 
 .sr-only {
@@ -80,8 +80,6 @@ body {
 .button:focus {
   outline: 1px dashed var(--black);
 }
-
-
 
 svg {
   width: 20px;
@@ -156,4 +154,8 @@ svg {
     max-width: 1000px;
     margin: 50px auto;
   }
+}
+
+.hidden {
+  display: none !important;
 }
