@@ -4,8 +4,15 @@
       <app-header></app-header>
       <app-todo-counter [todoItems]="todos"></app-todo-counter>
     </div>
+    <div *ngIf="todos.length === 0">
+      <div class="empty-list">
+        <h2>Wow, nothing to do yet?</h2>
+        <p>Get started by adding a new task to your list!</p>
+      </div>
+    </div>
     <app-todo-new (onTodoAdded)="addNewTodo($event)"></app-todo-new>
     <app-todo-list
+      *ngIf="todos.length > 0"
       [todos]="todos"
       (onTodoDeleted)="deleteTodo($event)"
       (onTodoCompleted)="completeTodo($event)"
