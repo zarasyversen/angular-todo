@@ -1,0 +1,8 @@
+a {
+  color: var(--blue);
+}
+
+a:hover,
+a:focus {
+  background-color: var(--base);
+}
