@@ -28,4 +28,22 @@ describe('TodoContainerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should render the header`, () => {
+    const fixture = TestBed.createComponent(HeaderComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should render the counter component`, () => {
+    const fixture = TestBed.createComponent(TodoCounterComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should render the create todo component`, () => {
+    const fixture = TestBed.createComponent(TodoNewComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
 });
