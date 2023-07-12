@@ -33,6 +33,7 @@
           type="button"
           class="button actions__button"
           aria-label="Delete this todo"
+          (click)="deleteTodo(todo.id)"
         >
           <fa-icon [icon]=faTrash> </fa-icon>
         </button>

@@ -9,7 +9,7 @@ import { TodoItem } from 'src/app/types/TodoItem';
 })
 export class TodoContainerComponent {
 
-  constructor(public todoService: TodoService) {}
+  constructor(private todoService: TodoService) {}
 
   todos: TodoItem[] = [];
 
@@ -23,9 +23,14 @@ export class TodoContainerComponent {
 
 
   addNewTodo(todo: TodoItem): void {
-    this.todoService.addTodo(todo).subscribe(newTodo => {
-      this.todos.push(newTodo);
-    });
+    this.todoService.addTodo(todo);
+    this.getTodos();
+  }
+
+  deleteTodo(todoId:number): void {
+    console.log('deleting, ', todoId);
+    this.todoService.deleteTodo(todoId);
+    this.getTodos();
   }
 
 }
